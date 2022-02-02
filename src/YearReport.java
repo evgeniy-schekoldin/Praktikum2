@@ -15,7 +15,7 @@ public class YearReport {
         fileLine.add(line);
     }
 
-    void sortExpensesIncomes() {
+    void sortExpensesIncomes() { //для удобного сравнения годового отчета с месячными (да и для вывода статистики) создали два HashMap, в одном будем хранить траты, в другом доходы.
         for (String[] line : fileLine) {
             if (Boolean.parseBoolean(line[2])) {
                 expenses.put(line[0], Integer.valueOf(line[1]));
@@ -26,10 +26,10 @@ public class YearReport {
     }
 
     void getProfit() {
-        Buh buh = new Buh();
+        Buh buh = new Buh(); // для использования функции получения названия месяца по номеру (почему-то не смог объявить вне метода?)
         for (String month : incomes.keySet()) {
             int profit = incomes.get(month) - expenses.get(month);
-            System.out.println("Прибыль за месяц " + buh.getMonthName(month).toLowerCase() + " = " + profit);
+            Praktikum.print("Прибыль за месяц " + buh.getMonthName(month).toLowerCase() + " = " + profit);
         }
     }
 
@@ -38,7 +38,7 @@ public class YearReport {
         for (String month : incomes.keySet()) {
             averageIncome = averageIncome + incomes.get(month);
         }
-        System.out.println("Средние доходы за год: " + averageIncome / incomes.size());
+        Praktikum.print("Средние доходы за год: " + averageIncome / incomes.size());
     }
 
     void getAverageExpense() {
@@ -46,7 +46,7 @@ public class YearReport {
         for (String month : expenses.keySet()) {
             averageExpense = averageExpense + expenses.get(month);
         }
-        System.out.println("Средние расходы за год: " + averageExpense / expenses.size());
+        Praktikum.print("Средние расходы за год: " + averageExpense / expenses.size());
     }
 
     Integer getMonthIncomes(String month) {

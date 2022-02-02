@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class MonthReport {
     String monthNum;
-    ArrayList<String[]> fileLine = new ArrayList<>();
+    ArrayList<String[]> fileLine = new ArrayList<>(); // т.к. двумерные массивы мы вроде еще не проходили, ничего умнее я не придумал ¯\_(ツ)_/¯
 
     void addString(String itemName, String isExpense, String quantity, String sumOfOne) {
         String[] line = new String[4];
@@ -25,7 +25,7 @@ public class MonthReport {
                 }
             }
         }
-        System.out.println("Максимальный прибыльный товар: " + profitItem);
+        Praktikum.print("Максимально прибыльная позиция в отчёте: " + profitItem);
     }
 
     void printMaxExpense() {
@@ -38,7 +38,7 @@ public class MonthReport {
                 }
             }
         }
-        System.out.println("Максимальная трата в месяце " + maxExpense);
+        Praktikum.print("Максимальная трата в месяце: " + maxExpense);
     }
 
 
@@ -50,7 +50,6 @@ public class MonthReport {
             }
         }
         return monthExpenses;
-
     }
 
     Integer getIncomes() {

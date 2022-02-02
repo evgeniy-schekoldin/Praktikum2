@@ -8,8 +8,7 @@ public class Praktikum {
 
         printMenu();
         while (true) {
-
-            System.out.println("Команда: ");
+            print("Команда: ");
             userInput = scanner.nextInt();
             if (userInput == 0) {
                 break;
@@ -22,20 +21,24 @@ public class Praktikum {
             } else if (userInput == 4) {
                 buh.printMonthReports();
             } else if (userInput == 5) {
-               buh.printYearReports();
+                buh.printYearReports();
             }
             printMenu();
         }
     }
 
     private static void printMenu() {
-        System.out.println("---");
-        System.out.println("1. Считать файлы месячных отчетов");
-        System.out.println("2. Считать файл годового отчета");
-        System.out.println("3. Сверить месячные отчеты с годовым");
-        System.out.println("4. Печать отчета по месяцам");
-        System.out.println("5. Печать годового отчета");
-        System.out.println("0. Выход");
+        print("---");
+        print("1. Считать файлы месячных отчетов");
+        print("2. Считать файл годового отчета");
+        print("3. Сверить месячные отчеты с годовым");
+        print("4. Печать отчета по месяцам");
+        print("5. Печать годового отчета");
+        print("0. Выход");
+    }
+
+    public static void print(String message) {
+        System.out.println(message);
     }
 
 }

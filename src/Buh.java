@@ -12,7 +12,7 @@ public class Buh {
         try {
             return Files.readString(Path.of(path));
         } catch (IOException e) {
-            System.out.println("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
+            Praktikum.print("Невозможно прочитать файл с месячным отчётом. Возможно, файл не находится в нужной директории.");
             return null;
         }
     }
@@ -28,6 +28,14 @@ public class Buh {
                 month.addString(lineContents[0], lineContents[1], lineContents[2], lineContents[3]);
             }
             monthReports.add(month);
+
+            //Пробный вариант хранения значений из файла в двумерном массиве класса "Test"
+            Test test = new Test(lines.length - 1);
+            for (int line = 1; line < lines.length; line++) {
+                String[] lineContents = lines[line].split(",");
+                test.addLines(line - 1, lineContents[0], lineContents[1], lineContents[2], lineContents[3]);
+            }
+            //test.printArray();
         }
     }
 
@@ -47,8 +55,11 @@ public class Buh {
                 int monthReportIncomes = month.getIncomes();
                 int yearReportIncomes = yearReport.getMonthIncomes(month.monthNum);
                 if (monthReportIncomes != yearReportIncomes) {
-                    System.out.println("В отчете за " + getMonthName(month.monthNum).toLowerCase() + " данные не сходятся с годовым отчетом.");
+                    Praktikum.print("В отчете за " + getMonthName(month.monthNum).toLowerCase() + " данные не сходятся с годовым отчетом.");
                 }
+            } else {
+                Praktikum.print("Файл годового отчёта не считан!");
+                break;
             }
         }
     }
