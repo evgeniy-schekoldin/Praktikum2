@@ -1,5 +1,6 @@
-public class Test {
 
+public class Test {
+    /* Класс для того, чтобы попробовать хранить данные в 2D-массиве, а не как было реализовано изначально. */
     String[][] test;
 
     Test(int lines) {

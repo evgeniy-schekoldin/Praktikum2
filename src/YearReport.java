@@ -15,7 +15,9 @@ public class YearReport {
         fileLine.add(line);
     }
 
-    void sortExpensesIncomes() { //для удобного сравнения годового отчета с месячными (да и для вывода статистики) создали два HashMap, в одном будем хранить траты, в другом доходы.
+    /* Для удобного сравнения годового отчета с месячными (да и для вывода статистики) создали два HashMap, в одном будем хранить траты, а в другом доходы.
+    * В последующем будем получать траты и доходы за определенный месяц по ключу-строке номера месяца */
+    void sortExpensesIncomes() {
         for (String[] line : fileLine) {
             if (Boolean.parseBoolean(line[2])) {
                 expenses.put(line[0], Integer.valueOf(line[1]));
@@ -26,7 +28,7 @@ public class YearReport {
     }
 
     void getProfit() {
-        Buh buh = new Buh(); // для использования функции получения названия месяца по номеру (почему-то не смог объявить вне метода?)
+        Buh buh = new Buh(); // для использования функции получения названия месяца по номеру (почему-то не смог объявить ее в данном классе вне метода).
         for (String month : incomes.keySet()) {
             int profit = incomes.get(month) - expenses.get(month);
             Praktikum.print("Прибыль за месяц " + buh.getMonthName(month).toLowerCase() + " = " + profit);
